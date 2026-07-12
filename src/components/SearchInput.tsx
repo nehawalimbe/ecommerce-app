@@ -1,4 +1,4 @@
-import { useDebugValue, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type Props = {
   searchText: string;
