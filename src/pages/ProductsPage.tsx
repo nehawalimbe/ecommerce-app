@@ -1,14 +1,22 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import ProductList from "./../components/ProductList";
 import type { Product } from "./../types/Product";
 import ProductFilters from "./../components/ProductFilters";
-import useProducts from "./../hooks/useProducts";
+// import useProducts from "./../hooks/useProducts";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootAction, RootState } from "../store/store";
+import { fetchProducts } from "../store/productSlice";
 
 function ProductsPage() {
-  const { products, loading, error } = useProducts();
+  // const { products, loading, error } = useProducts();
+  const dispatch = useDispatch<RootAction>();  
+  const { products, loading, error } = useSelector((state: RootState) => state.products);
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("price_low_high");
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   const sortedProducts = useMemo(() => {
     const filteredProducts = products
