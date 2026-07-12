@@ -9,8 +9,10 @@ import { fetchProducts } from "../store/productSlice";
 
 function ProductsPage() {
   // const { products, loading, error } = useProducts();
-  const dispatch = useDispatch<RootAction>();  
-  const { products, loading, error } = useSelector((state: RootState) => state.products);
+  const dispatch = useDispatch<RootAction>();
+  const { products, loading, error } = useSelector(
+    (state: RootState) => state.products,
+  );
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("price_low_high");
