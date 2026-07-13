@@ -1,0 +1,5 @@
+name : Deploy React E-Commerce App
+on : 
+  push :
+    branches:
+      master
