@@ -1,5 +1,14 @@
-name : Deploy React E-Commerce App
-on : 
-  push :
+name: Deploy React E-Commerce App
+
+on:
+  push:
     branches:
-      master
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
