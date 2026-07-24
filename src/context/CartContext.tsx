@@ -84,5 +84,7 @@ function useCart() {
   }
   return cartContext;
 }
+// This file is intentionally kept as a complete Context API reference.
+// eslint-disable-next-line react-refresh/only-export-components
 export { CartProvider, useCart };
 export default CartContext;

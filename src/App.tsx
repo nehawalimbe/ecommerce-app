@@ -5,16 +5,21 @@ import CartPage from "./pages/CartPage";
 import AboutPage from "./pages/AboutPage";
 import NavBar from "./components/NavBar";
 import ProductDetails from "./components/ProductDetails";
+import NotFoundPage from "./pages/NotFoundPage";
+
 function App() {
   return (
     <>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<ProductsPage></ProductsPage>} />
-        <Route path="/cart" element={<CartPage></CartPage>} />
-        <Route path="/about" element={<AboutPage></AboutPage>} />
-        <Route path="/product/:id" element={<ProductDetails></ProductDetails>} />
-      </Routes>
+      <NavBar />
+      <main className="site-main">
+        <Routes>
+          <Route path="/" element={<ProductsPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

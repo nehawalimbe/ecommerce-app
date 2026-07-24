@@ -5,11 +5,11 @@ type ProductListProps = {
 };
 function ProductList({ productList }: ProductListProps) {
   return (
-    <div className="product-list-container">
+    <section className="product-list-container" aria-label="Product results">
       {productList.map((product) => (
-        <ProductCard key={product.id} productData={product}></ProductCard>
+        <ProductCard key={product.id} productData={product} />
       ))}
-    </div>
+    </section>
   );
 }
 export default ProductList;
